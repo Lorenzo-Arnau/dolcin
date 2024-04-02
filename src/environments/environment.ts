@@ -12,6 +12,17 @@ const firebaseConfig = {
   messagingSenderId: "723712368160",
   appId: "1:723712368160:web:d8e0c7c044eb9a75be2645"
 };
+export const firebaseConfigExport = {
+  production:false,
+  firebase:{
+    apiKey: "AIzaSyDdYHt5nNYSp8L3Z7YG7bE58yfFQU5nK4E",
+    authDomain: "dolcin-proj.firebaseapp.com",
+    projectId: "dolcin-proj",
+    storageBucket: "dolcin-proj.appspot.com",
+    messagingSenderId: "723712368160",
+    appId: "1:723712368160:web:d8e0c7c044eb9a75be2645"
+  }
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
