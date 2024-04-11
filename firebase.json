@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/dolcin-tools",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

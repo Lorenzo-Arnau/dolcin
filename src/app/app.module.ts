@@ -14,6 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { firebaseConfigExport } from '../environments/environment';
+import { LoginComponentComponent } from './login-component/login-component.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { firebaseConfigExport } from '../environments/environment';
     HomeComponent,
     ToolsComponent,
     FinancialComponent,
+    LoginComponentComponent,
 
   ],
   imports: [
