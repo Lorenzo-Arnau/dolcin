@@ -33,4 +33,12 @@ export class LoginComponentComponent implements OnInit {
       console.error('Errore durante l\'accesso:', error);
     });
   }
+   seePassword() {
+    var x = <HTMLInputElement>document.getElementById("psw");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
 }

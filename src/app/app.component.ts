@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { DolcinService } from './dolcin-service.service';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,9 @@ export class AppComponent implements OnInit{
   title = 'dolcin';
   data: any;
 
-  constructor(private dataService: DolcinService) { }
+  constructor(private dataService: DolcinService,router:Router) { }
 
   ngOnInit() {
-   
+
   }
 }

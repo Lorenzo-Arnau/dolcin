@@ -39,9 +39,13 @@
         border: 0.68px solid #dddd;
         border-radius: 8px;
       }
+      #checkboxpsw{
+        cursor: pointer;
+      }
     }
     .button-container{
       display: flex;
+      margin-top: 12px;
       justify-content: center;
       align-items: center;
       width: 100%;
@@ -57,5 +61,14 @@
         background-color: #fff;
       }
     }
+  }
+  .version-prod{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    font-style: italic;
   }
 }

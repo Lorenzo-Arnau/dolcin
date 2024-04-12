@@ -6,12 +6,20 @@
       <input type="text" placeholder="Username/Mail" [(ngModel)]="username">
     </div>
     <div class="input-container">
-      <input type="password" placeholder="Password" [(ngModel)]="password">
+      <input id="psw" type="password" placeholder="Password" [(ngModel)]="password">
     </div>
+    <div class="input-container">
+      <input style="margin-right: 8px;" type="checkbox" #checkboxpsw name="checkboxpsw" id="checkboxpsw" (click)="seePassword()">
+      <label for="checkboxpsw">Giuro sollennemente di non avere buone intenzioni</label>
+    </div>
+
     <div class="button-container">
       <div class="button-custom" (click)="submitInfo()">
         Accedi
       </div>
     </div>
+  </div>
+  <div class="version-prod">
+    ver-0.1
   </div>
 </div>

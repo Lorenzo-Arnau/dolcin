@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { firebaseConfigExport } from '../environments/environment';
 import { LoginComponentComponent } from './login-component/login-component.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponentComponent } from './login-component/login-component.compo
     ToolsComponent,
     FinancialComponent,
     LoginComponentComponent,
+    TopBarComponent,
 
   ],
   imports: [
