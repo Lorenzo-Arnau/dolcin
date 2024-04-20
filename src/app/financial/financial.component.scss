@@ -16,11 +16,117 @@
     height: calc(100vh - 40px);
     justify-content: center;
     align-items: center;
-    img{
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 12px;
+   .body-main{
+    width: 100%;
+    padding: 25px;
+    gap: 25px;
+    display: flex;
+    &-left{
+      width: 25%;
+      min-width: 250px;
+      height: fit-content;
+      min-height: 400px;
+      background-color: #fff;
+      border-radius: 12px;
+      border: 0.68px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      padding: 48px;
+      .title{
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .subtitle{
+        font-size: 14px;
+        font-weight: 500px;
+        margin-bottom: 24px;
+      }
+      .financial-note{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+        input{
+          padding: 12px;
+          border: 0.68px solid #dddd;
+          border-radius: 8px;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+          -moz-appearance: textfield;
+        }
+        img{
+          width: 32px;
+          height: 32px;
+        }
+      }
+      .type-note{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 32px;
+        margin-top: 32px;
+        .select-type{
+          display: flex;
+          align-items: center;
+          border-radius: 50%;
+          cursor: pointer;
+          background-color: transparent;
+          padding: 12px;
+          transition: all 0.4s ease-in-out;
+          &:hover{
+            background-color: #ddd;
+
+          }
+          img{
+            width: 42px;
+            height: 42px;
+          }
+        }
+        .selected-type{
+          background-color: #ddd;
+        }
+      }
+      .button-container{
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin-top: 24px;
+
+        .reset-button{
+          text-decoration: underline;
+          cursor: pointer;
+        }
+        .button-send{
+          border: 0.68px solid #ddd;
+          border-radius: 8px;
+          padding: 0px 12px;
+          width: fit-content;
+          min-width: 128px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 32px;
+        }
+      }
     }
+    &-right{
+      width: 65%;
+      min-width: 250px;
+      height: fit-content;
+      min-height: 400px;
+      background-color: #fff;
+      border-radius: 12px;
+      border: 0.68px solid #ddd;
+    }
+   }
   }
 }

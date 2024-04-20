@@ -2,10 +2,24 @@
  <app-top-bar></app-top-bar>
  <div class="center-part">
     <div class="logo">
-      <img src="../../assets/images/dolcin.png" alt="">
+      <img class="logo-img" src="../../assets/images/dolcin.png" alt="">
     </div>
     <div class="title">
-      Dolcin Pasticceria
+      Ciao Cinzia! Cosa posso fare per te oggi?
+    </div>
+    <div class="action-block-container">
+      <div class="first-block block" (click)="siteNav(2)">
+        <img src="assets/images/money.svg" alt="">
+        Aggiungi nota spese
+      </div>
+      <div class="second-block block" (click)="siteNav(3)">
+        <img src="assets/images/cake.svg" alt="">
+        Aggiungi un ordine
+      </div>
+      <div class="third-block block" (click)="siteNav(2)">
+        <img src="assets/images/trend.svg" alt="">
+        Controlla il bilancio attuale
+      </div>
     </div>
  </div>
 </div>

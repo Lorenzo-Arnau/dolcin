@@ -1,17 +1,18 @@
 <div class="top-menu">
-  <div class="menu-item logo-item">
+  <div class="menu-item logo-item" (click)="siteNav(1)">
     <img src="../../assets/images/dolcin.png" alt="">
   </div>
-  <div class="menu-item" (click)="siteNav(1)">
+  <div *ngIf="responsiveMode == false" class="menu-item" (click)="siteNav(1)">
     Home
   </div>
-  <div class="menu-item" (click)="siteNav(2)">
+  <div *ngIf="responsiveMode == false" class="menu-item" (click)="siteNav(2)">
     Spese/Ricavi
   </div>
-  <div class="menu-item" (click)="siteNav(3)">
+  <div *ngIf="responsiveMode == false" class="menu-item" (click)="siteNav(3)">
     Tools
   </div>
   <div class="menu-item log-out" (click)="siteNav(4)">
-    Log-out
+    <span *ngIf="responsiveMode == false">Log-out</span>
+    <img  *ngIf="responsiveMode == true" src="assets/images/logout.svg" alt="">
   </div>
 </div>

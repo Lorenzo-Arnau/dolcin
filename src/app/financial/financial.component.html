@@ -1,11 +1,38 @@
 <div class="main">
   <app-top-bar></app-top-bar>
   <div class="center-part">
-     <div class="logo">
-       <img src="../../assets/images/dolcin.png" alt="">
-     </div>
-     <div class="title">
-       financial
-     </div>
+    <div class="body-main">
+      <div class="body-main-left">
+        <div class="title">
+          Aggiungi Nota
+        </div>
+        <div class="subtitle">
+          Qui puoi aggiungere una nota , scegliere se è in entrata o in uscita e il sistema calcolerà automaticamente la sitauzione attuale.
+        </div>
+        <div class="financial-note">
+          <input #financialInput type="number" [(ngModel)]="inputFinancial" (keyup)="selectFinancialValue($event)">
+          <img src="assets/images/euro.svg" alt="">
+        </div>
+        <div class="type-note">
+          <div class="select-send select-type" [ngClass]="noteObj.type == 1 ? 'selected-type' : ''" (click)="selectTypeFinancial(1)">
+            <img src="assets/images/money-send.svg" alt="">
+          </div>
+          <div class="select-recive select-type"[ngClass]="noteObj.type == 2 ? 'selected-type' : ''" (click)="selectTypeFinancial(2)">
+            <img src="assets/images/money-recive.svg" alt="">
+          </div>
+        </div>
+        <div class="button-container">
+          <div class="reset-button" (click)="resetValue()">
+            Reset
+          </div>
+          <div class="button-send">
+            Salva
+          </div>
+        </div>
+      </div>
+      <div class="body-main-right">
+        right
+      </div>
+    </div>
   </div>
  </div>

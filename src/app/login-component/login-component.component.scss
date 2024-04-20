@@ -10,7 +10,7 @@
   justify-content: center;
   .central-part{
     height: fit-content;
-    min-width: 300px;
+    min-width: 500px;
     padding: 48px;
     width: fit-content;
     max-width: 1080px;
@@ -21,6 +21,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+      padding: 12px;
+      min-width: 300px;
+    }
     .logo{
       img{
         border-radius: 50%;
@@ -34,6 +38,8 @@
     }
     .input-container{
       margin: 12px 0px;
+      display: flex;
+      align-items: center;
       input{
         padding: 12px;
         border: 0.68px solid #dddd;

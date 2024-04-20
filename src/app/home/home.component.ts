@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DolcinService } from '../dolcin-service.service';
 import { Router } from '@angular/router';
+import { siteNavExp } from '../top-bar/top-bar.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +18,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  siteNav(type:any){
+    siteNavExp(type,this.router,this.dataService)
+  }
 
 }
-
 

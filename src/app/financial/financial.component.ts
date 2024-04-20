@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DolcinService } from '../dolcin-service.service'
 @Component({
   selector: 'app-financial',
@@ -6,20 +6,35 @@ import { DolcinService } from '../dolcin-service.service'
   styleUrl: './financial.component.scss'
 })
 export class FinancialComponent implements OnInit  {
+  inputFinancial:any;
+  @ViewChild('financialInput') financialInput: ElementRef<HTMLInputElement> = Object.create(null)
+  noteObj:any={value:0,type:0}
   constructor(private dataService: DolcinService) { }
 
   ngOnInit() {
-    // Lettura dei dati da un nodo nel database
-    this.dataService.getDataFromNode('example_node').subscribe((data: any) => {
+    this.getValues();
+
+  }
+  selectFinancialValue(event:any){
+    this.noteObj.value = event.target.value
+
+  }
+  selectTypeFinancial(type:any){
+    this.noteObj.type = type;
+  }
+  resetValue(){
+    this.noteObj.value = 0
+    this.noteObj.type = 0
+    this.financialInput.nativeElement.value =''
+  }
+  getValues(){
+    this.dataService.getDataFromNode('financial_data').subscribe((data: any) => {
       console.log('Dati ottenuti:', data);
     });
+  }
 
-    // Scrittura dei dati in un nodo nel database
-    const newData = {
-      name: 'Nuovo dato',
-      value: 123
-    };
-    this.dataService.writeDataToNode('example_node', newData).then(() => {
+  sendValues(){
+    this.dataService.writeDataToNode('example_node', this.noteObj).then(() => {
       console.log('Dati scritti con successo nel nodo');
     }).catch((error:any) => {
       console.error('Errore durante la scrittura dei dati:', error);
