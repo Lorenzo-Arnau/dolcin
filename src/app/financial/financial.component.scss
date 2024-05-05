@@ -49,8 +49,11 @@
         gap: 12px;
         input{
           padding: 12px;
-          border: 0.68px solid #dddd;
+          border: 0.68px solid #dddd !important;
           border-radius: 8px;
+        }
+        input:focus-visible{
+          border: 0.68px solid #dddd !important;
         }
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -67,12 +70,26 @@
           height: 32px;
         }
       }
+      .multiselect-continer{
+        margin-top: 12px;
+        select{
+          padding: 12px;
+          border: 0.68px solid #dddd !important;
+          border-radius: 8px;
+          cursor: pointer;
+          background-color: transparent;
+        }
+        select:focus-visible{
+          border: 0.68px solid #dddd !important;
+        }
+
+      }
       .type-note{
         display: flex;
         align-items: center;
         width: 100%;
         gap: 32px;
-        margin-top: 32px;
+        margin-top: 24px;
         .select-type{
           display: flex;
           align-items: center;
@@ -126,6 +143,53 @@
       background-color: #fff;
       border-radius: 12px;
       border: 0.68px solid #ddd;
+      gap: 24px;
+      padding: 24px 36px;
+      display:grid;
+      flex-direction: column;
+      .no-notes{
+        width: 100%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+        color: #ccc;
+      }
+      .notes-container-right{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+
+        .note-item{
+          width: 240px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          p{
+            margin: 4px;
+          }
+        }
+        .out-item{
+          border: 0.68px solid lightcoral;
+          border-radius: 8px;
+          padding: 12px;
+          align-self: left;
+        }
+        .in-item{
+          border: 0.68px solid lightgreen;
+          border-radius: 8px;
+          padding: 12px;
+          margin-left: auto;
+        }
+      }
+      .line-final{
+        padding-top: 12px;
+        border-top: 0.68px solid #ccc;
+      }
     }
    }
   }

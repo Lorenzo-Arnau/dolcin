@@ -13,6 +13,11 @@
           <input #financialInput type="number" [(ngModel)]="inputFinancial" (keyup)="selectFinancialValue($event)">
           <img src="assets/images/euro.svg" alt="">
         </div>
+        <div class="multiselect-continer">
+          <select [(ngModel)]="noteObj.specs">
+            <option *ngFor="let item of listMultiselect" [value]="item">{{item}}</option>
+          </select>
+        </div>
         <div class="type-note">
           <div class="select-send select-type" [ngClass]="noteObj.type == 1 ? 'selected-type' : ''" (click)="selectTypeFinancial(1)">
             <img src="assets/images/money-send.svg" alt="">
@@ -25,13 +30,50 @@
           <div class="reset-button" (click)="resetValue()">
             Reset
           </div>
-          <div class="button-send">
+          <div class="button-send" (click)="sendValues()">
             Salva
           </div>
         </div>
       </div>
-      <div class="body-main-right">
-        right
+      <div class="body-main-right" *ngIf="financials?.length != 0">
+        <div *ngFor="let item of financials" [ngSwitch]="item.specs" class="notes-container-right">
+
+          <div *ngSwitchCase="'Spesa primaria'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+           <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchCase="'Spesa secondaria'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+           <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchCase="'Materia prima'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+           <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchCase="'Marketing'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+           <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchCase="'Rimborso'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+              <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchCase="'Acquisto'" class="note-item" [ngClass]="item.type == 1 ? 'out-item': 'in-item'">
+           <p>{{item.specs}}</p>
+           <p>{{item.type == 1 ? '- ' : '+ '}}{{item.value}} €</p>
+          </div>
+          <div *ngSwitchDefault>
+            'tipo non definito'
+          </div>
+        </div>
+        <div class="line-final">
+          Resoconto mese {{totalForMonth}} €
+        </div>
+      </div>
+      <div class="body-main-right" *ngIf="financials?.length == 0">
+        <div class="no-notes">
+          Nessuna Nota Inserita
+        </div>
       </div>
     </div>
   </div>

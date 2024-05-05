@@ -1,26 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Financial } from './models/financial.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DolcinService {
+  tutorialsRef: AngularFireList<Financial>;
+  private dbPath ='/financial_tools'
 
-  constructor(private afAuth: AngularFireAuth,private http: HttpClient,private db: AngularFireDatabase) {
-
+  constructor(private afAuth: AngularFireAuth,private db: AngularFireDatabase) {
+    this.tutorialsRef = db.list(this.dbPath);
   }
 
-    // Metodo per ottenere i dati da un nodo specifico nel database
-    getDataFromNode(node: string) {
-      return this.db.object(node).valueChanges();
-    }
+  getAll(): AngularFireList<Financial> {
+    return this.tutorialsRef;
+  }
 
-    // Metodo per scrivere dati in un nodo specifico nel database
-    writeDataToNode(node: string, data: any) {
-      return this.db.object(node).set(data);
-    }
+  create(tutorial: Financial): any {
+    return this.tutorialsRef.push(tutorial);
+  }
+
+  update(key: string, value: any): Promise<void> {
+    return this.tutorialsRef.update(key, value);
+  }
+
+  delete(key: string): Promise<void> {
+    return this.tutorialsRef.remove(key);
+  }
+  deleteAll(): Promise<void> {
+    return this.tutorialsRef.remove();
+  }
+
     // Metodo per effettuare l'accesso con email e password
   loginWithEmail(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password);
